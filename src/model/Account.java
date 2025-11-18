@@ -2,17 +2,15 @@ package model;
 
 public abstract class Account implements accountOperations {
 
-
     //Constantes
 	private static final int DEFAULT_BRANCH = 1;
 	private static int SEQUENTIAL = 1;
 
-
     //Atributos
-	protected int branch;
-	protected int number;
-	protected double balance;
-	protected Client client;
+	protected int branch;           //Agência
+	protected int number;           //N° da conta
+	protected double balance;       //Saldo da conta
+	protected Client client;        //Cliente
 
     //Constructor
 	public Account(Client client) {
@@ -23,27 +21,34 @@ public abstract class Account implements accountOperations {
 
 
     //Métodos
+
+    //Sacar
 	@Override
 	public void withdraw(double value) {
 		balance -= balance;
-	}       //Sacar
+	}
 
+    //Depositar
 	@Override
 	public void deposit(double balance) {
 		balance += balance;
 	}
 
+    //Transferir
 	@Override
 	public void transfer(double balance, accountOperations destinationAccount) {
 		this.withdraw(balance);
 		destinationAccount.deposit(balance);
 	}
 
-    protected void printCommonInfo() {                  //Imprimir informações comuns
+    //Imprimir informações comuns
+    protected void printCommonInfo() {
+        System.out.println("=====================================");
         System.out.println(String.format("Titular: %s", this.client.getName()));
         System.out.println(String.format("Agencia: %d", this.branch));
         System.out.println(String.format("Numero: %d", this.number));
         System.out.println(String.format("Saldo: %.2f", this.balance));
+        System.out.println("=====================================\n");
     }
 
 

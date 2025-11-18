@@ -11,7 +11,8 @@ public class CheckingAccount extends Account {
     //Sobre-escrita de method
     @Override
 	public void printStatement() {                          //Imprimir extrato
-		System.out.println("=== Extrato Conta Corrente ===");
+        System.out.println("=====================================");
+        System.out.println("----< Extrato Conta Corrente >----");
 		super.printCommonInfo();
 	}
 	

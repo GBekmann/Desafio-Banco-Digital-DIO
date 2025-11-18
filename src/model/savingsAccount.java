@@ -11,7 +11,9 @@ public class savingsAccount extends Account {
     //Sobre-escrita de method
 	@Override
 	public void printStatement() {
-		System.out.println("=== Extrato Conta Poupan�a ===");
+        System.out.println("=====================================");
+		System.out.println("----< Extrato Conta Poupança >----");
+        System.out.println("=====================================");
 		super.printCommonInfo();
 	}
 }
