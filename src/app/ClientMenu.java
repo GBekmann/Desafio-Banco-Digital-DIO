@@ -56,9 +56,9 @@ public class ClientMenu {
         System.out.println("2 - Realizar transferência");
         System.out.println("3 - Realizar saque");
         System.out.println("4 - Realizar depósito");
-        System.out.println("=====================================");
+        System.out.println("--------------------------------------");
         System.out.println("9 - Voltar");
         System.out.println("0 - Encerrar aplicação");
-        System.out.println("=====================================");
+        System.out.println("--------------------------------------\n");
     }
 }

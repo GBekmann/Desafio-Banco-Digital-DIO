@@ -7,7 +7,7 @@ public class BankConsoleMenu {
 
     boolean executionRunning = true;
 
-    public void openBankMenu() {
+    public void runBankSystem() {
 
         while (executionRunning) {
             System.out.println("\n===============================");
@@ -16,9 +16,9 @@ public class BankConsoleMenu {
             System.out.println("1 - Gerenciar cadastros");
             System.out.println("2 - Menu do Cliente");
             System.out.println("0 - Encerrar aplicativo");
-            System.out.println("===============================");
+            System.out.println("--------------------------------------");
             System.out.println("Digite a opção desejada");
-            System.out.println("===============================\n");
+            System.out.println("--------------------------------------\n");
             int userOption = scanner.nextInt();
 
                 switch (userOption) {
@@ -31,11 +31,6 @@ public class BankConsoleMenu {
                         hideLastMenu();
                         ClientMenu menuClientes = new ClientMenu();
                         menuClientes.openClientMenu(this, scanner);
-                        break;
-
-                    case 3:
-                        hideLastMenu();
-                        System.out.println("3");
                         break;
 
                     case 0:
@@ -51,11 +46,12 @@ public class BankConsoleMenu {
         System.out.println("\n\n\n\n\n\n\n\n");
     }
 
+
     public void stopApplication(){
         hideLastMenu();
-        executionRunning = false;
         System.out.println("===============================");
         System.out.println("Encerrando a aplicação...");
         System.out.println("===============================\n\n");
+        executionRunning = false;
     }
 }
