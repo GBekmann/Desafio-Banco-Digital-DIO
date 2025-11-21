@@ -13,7 +13,6 @@ public class savingsAccount extends Account {
 	public void printStatement() {
         System.out.println("=====================================");
 		System.out.println("----< Extrato Conta Poupança >----");
-        System.out.println("=====================================");
 		super.printCommonInfo();
 	}
 }

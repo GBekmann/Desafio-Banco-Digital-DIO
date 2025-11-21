@@ -54,15 +54,15 @@ public abstract class Account implements accountOperations {
 
     //Getters & Setters
 
-	public int getAgencia() {
+	public int getBranch() {
 		return branch;
 	}
 
-	public int getNumero() {
+	public int getNumber() {
 		return number;
 	}
 
-	public double getSaldo() {
+	public double getBallance() {
 		return balance;
 	}
 

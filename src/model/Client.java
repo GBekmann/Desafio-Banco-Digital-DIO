@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 public class Client {
 
     //Atributos
-	private String name;
+    private String name;
     private String cpf;
     private String email;
     private String birthdayStr;
@@ -24,54 +24,69 @@ public class Client {
         this.name = name;
         this.cpf = cpf;
         this.email = email;
-        this.birthdayStr = birthdayStr;
-        this.clientID = clientID;
+        this.birthdayStr = formatDate(birthdayStr); //Formata a data
+        this.age = ageCalculator(this.birthdayStr);  //Calcula a idade
+        this.clientID = clientID; //Criar method que gerará um inteiro aleatorio para atribuir ao cliente
     }
 
     //Getters & Setters
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBirthdayStr() {
+        return birthdayStr;
+    }
 
     public String getCpf() {
         return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public int getAge() {
+        return age;
     }
 
     public int getClientID() {
         return clientID;
     }
 
+    //Client Methods
 
-    private Period ageValidator(String birthdayStr) {
-        //Data atual, formatação String
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        LocalDate birthday = LocalDate.parse(birthdayStr, formatador);
+    private String formatDate(String rawDate) {
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        //Array com a formatação dos inputs de datas de nascimento
+        DateTimeFormatter[] inputFormatters = new DateTimeFormatter[]{
+                DateTimeFormatter.ofPattern("dd/MM/yyyy"),
+                DateTimeFormatter.ofPattern("ddMMyyyy")
+        };
+        
+        //Tratamento de exceções para cada formatador de datas
+        for (DateTimeFormatter formatter : inputFormatters) {
 
-        LocalDate actualDate = LocalDate.now();
-
-        //Calculadora de idade (Utiliza resultados da estrutura construída acima)
-        Period age = Period.between(birthday, actualDate);
-        System.out.println("Idade atual do cliente é" + age.getYears());
-
-        return age;
+            try {
+                LocalDate date = LocalDate.parse(rawDate, formatter);
+                return date.format(outputFormatter);
+            } catch (Exception e) {
+                //Tentará o próximo formato...
+            }
+        }
+        //Mensagem de erro
+        throw new IllegalArgumentException("Formato de data inválido: " + rawDate);
     }
-
-
-
+        
+    //Method que calculará a idade
+    private int ageCalculator(String outputFormatter) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate birthDate = LocalDate.parse(outputFormatter, formatter);
+        return Period.between(birthDate, LocalDate.now()).getYears();
+    }
 }

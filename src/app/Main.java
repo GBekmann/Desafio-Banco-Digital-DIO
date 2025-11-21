@@ -23,7 +23,7 @@ public class Main {
 
         BankConsoleMenu menuTeste = new BankConsoleMenu();
 
-        menuTeste.openBankMenu();
+        menuTeste.runBankSystem();
 
 	}
 
