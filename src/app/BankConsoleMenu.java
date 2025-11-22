@@ -10,15 +10,15 @@ public class BankConsoleMenu {
     public void runBankSystem() {
 
         while (executionRunning) {
-            System.out.println("\n===============================");
-            System.out.println("----< DIO Bank Account >----");
+            System.out.println("===============================");
+            System.out.println("       DIO Bank Account ");
             System.out.println("===============================");
             System.out.println("1 - Gerenciar cadastros");
             System.out.println("2 - Menu do Cliente");
             System.out.println("0 - Encerrar aplicativo");
-            System.out.println("--------------------------------------");
-            System.out.println("Digite a opção desejada");
-            System.out.println("--------------------------------------\n");
+            System.out.println("-------------------------------");
+            System.out.println("   Digite a opção desejada:");
+            System.out.println("-------------------------------");
             int userOption = scanner.nextInt();
 
                 switch (userOption) {

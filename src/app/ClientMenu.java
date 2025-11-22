@@ -41,14 +41,10 @@ public class ClientMenu {
                     bankMenu.stopApplication();
                     break;
             }
-
-
-
         }
     }
 
     private void showClientMenuOptions(BankConsoleMenu bankMenu) {
-        bankMenu.hideLastMenu();
         System.out.println("=====================================");
         System.out.println("----< Área do cliente >----");
         System.out.println("=====================================");
